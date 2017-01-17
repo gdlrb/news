@@ -1,0 +1,13 @@
+<?php
+$news = $this->getNewsCollection();
+$newsViewUrl = Mage::getUrl('news/index/view');
+?>
+    <h1>News</h1>
+<?php foreach ($news as $item): ?>
+    <div class="content">
+        <a href="<?php echo $newsViewUrl; ?>?id=<?php echo $item->getId(); ?>">
+            <?php echo $item->getTitle(); ?>
+        </a>
+        <span><?php echo date("d.m.Y", strtotime($item->getCreated())); ?></span>
+    </div>
+<?php endforeach; ?>
